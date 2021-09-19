@@ -3,11 +3,9 @@ project(GSEngineMacOS)
 
 set(CMAKE_VERBOSE_MAKEFILE OFF)
 
-set(CMAKE_CXX_FLAGS "-g")			# 调试信息
-set(CMAKE_CXX_FLAGS "-std=c++11")	# 使用c++11
-set(CMAKE_CXX_FLAGS "-Wformat")		# 开启所有警告
+set(CMAKE_CXX_FLAGS "-g -std=c++17 -Werror")
 
-set(CMAKE_CXX_FLAGS_DEBUG   "-O0" )				# 调试包不优化
+set(CMAKE_CXX_FLAGS_DEBUG "-O0")    # 调试包不优化
 # set(CMAKE_CXX_FLAGS_RELEASE "-O2 -DNDEBUG " )	# release包优化
 
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_LIST_DIR}/cmake-build-debug/output)
