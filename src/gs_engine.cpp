@@ -7,7 +7,7 @@
  *  Author: gallenshao
  */
 
-#include "gs_engine.hpp"
+#include "gs_engine.h"
 
 gs::GSEngine::GSEngine() {
 
