@@ -10,7 +10,7 @@ set(CMAKE_CXX_FLAGS "-Wformat")		# 开启所有警告
 set(CMAKE_CXX_FLAGS_DEBUG   "-O0" )				# 调试包不优化
 # set(CMAKE_CXX_FLAGS_RELEASE "-O2 -DNDEBUG " )	# release包优化
 
-set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_LIST_DIR}/build/output)
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_LIST_DIR}/cmake-build-debug/output)
 
 set(GSENGINE_ROOT ${CMAKE_CURRENT_LIST_DIR}/../..)
 

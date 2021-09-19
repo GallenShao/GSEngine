@@ -2,10 +2,10 @@
 
 cd `dirname $0`
 
-if [ ! -d build ]; then
-	mkdir build
+if [ ! -d cmake-build-debug ]; then
+	mkdir cmake-build-debug
 fi
 
-cd build
+cd cmake-build-debug
 cmake ..
 make
