@@ -19,6 +19,8 @@ class VertexBuffer : public Buffer {
  public:
   explicit VertexBuffer(const std::shared_ptr<std::vector<float>>& data);
 
+  void Dump() override;
+
  private:
   std::shared_ptr<std::vector<float>> data_;
 };

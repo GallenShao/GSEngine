@@ -29,7 +29,9 @@ class Buffer {
 
   uint64_t GetId() const;
 
- private:
+  virtual void Dump() = 0;
+
+ protected:
   uint64_t id_ = 0;
   BufferType type_;
   int gl_type_;

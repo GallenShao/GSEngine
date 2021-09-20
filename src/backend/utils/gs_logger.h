@@ -21,6 +21,8 @@ namespace gs::logger {
 
 extern int min_log_level;
 
+extern std::string last_log;
+
 // This class is used to explicitly ignore values in the conditional
 // logging macros. This avoids compiler warnings like "value computed
 // is not used" and "statement has no effect".
@@ -43,6 +45,7 @@ class Logger {
  private:
   std::stringstream stream_;
   int level_;
+  std::string beginning;
 };
 
 void SetMinLogLevel(int level);

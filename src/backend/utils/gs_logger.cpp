@@ -38,19 +38,20 @@ Logger::Logger(const char *file, int line, int level) : level_(level) {
       break;
   }
 #endif
+  beginning = stream_.str();
+  std::stringstream().swap(stream_);
 }
 
 Logger::~Logger() {
+  last_log = stream_.str();
 #if GS_MACOS
-  stream_ << "\033[0m";
-#endif
-
-#if GS_MACOS
-  printf("%s\n", stream_.str().c_str());
+  printf("%s%s\033[0m\n", beginning.c_str(), last_log.c_str());
 #endif
 }
 
 int min_log_level = LEVEL_INFO;
+
+std::string last_log = "";
 
 void SetMinLogLevel(int level) { min_log_level = level; }
 

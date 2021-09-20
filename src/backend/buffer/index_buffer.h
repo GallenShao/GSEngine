@@ -19,6 +19,8 @@ class IndexBuffer : public Buffer {
  public:
   explicit IndexBuffer(const std::shared_ptr<std::vector<uint32_t>>& data);
 
+  void Dump() override;
+
  private:
   std::shared_ptr<std::vector<uint32_t>> data_;
 };
