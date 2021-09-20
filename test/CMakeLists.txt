@@ -31,7 +31,9 @@ link_directories(/usr/local/Cellar/glfw/3.3.4/lib)
 
 ####################    设置子库    ####################
 
-add_subdirectory(../src GSEngine)
+if (CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_CURRENT_LIST_DIR)
+    add_subdirectory(${GSENGINE_ROOT}/src GSEngine)
+endif()
 
 ####################    开启测试    ####################
 
@@ -39,8 +41,8 @@ enable_testing()
 
 add_executable(
         GSEngine_test
-        main.cpp
-        backend/test_shader.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/main.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/backend/test_shader.cpp
 )
 target_link_libraries(
         GSEngine_test

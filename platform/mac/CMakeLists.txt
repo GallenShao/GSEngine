@@ -50,3 +50,5 @@ if (APPLE)
 endif()
 
 target_link_libraries(GSEngineMacOS GSEngine)
+
+include(${GSENGINE_ROOT}/test/CMakeLists.txt)

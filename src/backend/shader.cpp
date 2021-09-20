@@ -19,6 +19,7 @@ Shader::Shader(ShaderType type, const char* shader_source) : type_(type) {
   id_ = glCreateShader(GetGLType());
   if (id_ == 0) {
     LOG(LEVEL_ERROR, TAG) << "fail to create " << GetGLTypeStr() << " shader";
+    return;
   }
   LOG(LEVEL_INFO, TAG) << "create " << GetGLTypeStr() << " shader [" << id_ << "]";
   GS_GL_CHECKER(glShaderSource(id_, 1, &shader_source, nullptr))
