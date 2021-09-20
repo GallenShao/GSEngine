@@ -16,7 +16,11 @@ void main() {                  \n\
 }"
 
 #define TEST_FRAGMENT_SHADER \
-"uniform vec4 u_Color;      \n\
+"uniform vec4 u_Color;     \n\
 void main() {              \n\
   gl_FragColor = u_Color;  \n\
 }"
+
+#define TEST_VERTEX_BUFFER { 1.0f, 1.0f, 0.0f, 1.0f, -1.0f, 0.0f, -1.0f, -1.0f, 0.0f, -1.0f, 1.0f, 0.0f }
+
+#define TEST_INDEX_BUFFER { 0, 1, 2, 2, 3, 0 }

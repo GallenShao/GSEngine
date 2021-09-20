@@ -21,7 +21,7 @@ Shader::Shader(ShaderType type, const char* shader_source) : type_(type) {
     LOG(LEVEL_ERROR, TAG) << "fail to create " << GetGLTypeStr() << " shader";
     return;
   }
-  LOG(LEVEL_INFO, TAG) << "create " << GetGLTypeStr() << " shader [" << id_ << "]";
+  LOG(LEVEL_INFO, TAG) << GetGLTypeStr() << " shader created[" << id_ << "].";
   GS_GL_CHECKER(glShaderSource(id_, 1, &shader_source, nullptr))
   GS_GL_CHECKER(glCompileShader(id_))
 
@@ -44,6 +44,7 @@ void Shader::destroy() {
   if (id_ == 0) return;
 
   GS_GL_CHECKER(glDeleteShader(id_))
+  LOG(LEVEL_INFO, TAG) << GetGLTypeStr() << " shader deleted[" << id_ << "].";
   id_ = 0;
 }
 

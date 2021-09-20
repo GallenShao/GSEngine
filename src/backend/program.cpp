@@ -24,7 +24,7 @@ Program::Program(const char *vertex_shader, const char *fragment_shader) {
     LOG(LEVEL_ERROR, TAG) << "fail to create program";
     return;
   }
-  LOG(LEVEL_INFO, TAG) << "create program [" << id_ << "]";
+  LOG(LEVEL_INFO, TAG) << "program created[" << id_ << "].";
 
   GS_GL_CHECKER(glAttachShader(id_, v_shader_->GetId()))
   GS_GL_CHECKER(glAttachShader(id_, f_shader_->GetId()))
@@ -62,6 +62,7 @@ void Program::destroy() {
   if (id_ == 0) return;
 
   GS_GL_CHECKER(glDeleteProgram(id_))
+  LOG(LEVEL_INFO, TAG) << "program deleted[" << id_ << "].";
   id_ = 0;
 }
 

@@ -12,6 +12,7 @@ include_directories(${GSENGINE_ROOT}/src/backend)
 aux_source_directory(. GS_ENGINE_SRCS)
 aux_source_directory(backend GS_ENGINE_SRCS)
 aux_source_directory(backend/utils GS_ENGINE_SRCS)
+aux_source_directory(backend/buffer GS_ENGINE_SRCS)
 
 ####################  设置预编译宏  ####################
 

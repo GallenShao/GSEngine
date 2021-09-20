@@ -16,6 +16,8 @@
 TEST(ProgramTest, CreateProgram) {
   auto program = new gs::Program(TEST_VERTEX_SHADER, TEST_FRAGMENT_SHADER);
   EXPECT_NE(program->GetId(), 0);
+  program->active();
+  program->inactive();
   EXPECT_FALSE(gs::glchecker::has_gl_error);
   delete program;
 }
