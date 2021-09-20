@@ -38,7 +38,7 @@ Shader::Shader(ShaderType type, const char* shader_source) : type_(type) {
 
 Shader::~Shader() { destroy(); }
 
-uint64_t Shader::GetId() { return id_; }
+uint64_t Shader::GetId() const { return id_; }
 
 void Shader::destroy() {
   if (id_ == 0) return;

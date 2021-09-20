@@ -47,9 +47,9 @@ Program::~Program() {
   f_shader_ = nullptr;
 }
 
-uint64_t Program::GetId() { return id_; }
+uint64_t Program::GetId() const { return id_; }
 
-void Program::active() {
+void Program::active() const {
   if (id_ == 0) return;
   GS_GL_CHECKER(glUseProgram(id_))
 }

@@ -21,7 +21,7 @@ class Shader {
   Shader(ShaderType type, const char* shader_source);
   ~Shader();
 
-  uint64_t GetId();
+  uint64_t GetId() const;
 
  private:
   ShaderType type_;

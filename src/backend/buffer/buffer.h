@@ -24,10 +24,10 @@ class Buffer {
   Buffer(BufferType type, const void* data, int item_counts, size_t item_size);
   ~Buffer();
 
-  void active();
-  void inactive();
+  void active() const;
+  void inactive() const;
 
-  uint64_t GetId();
+  uint64_t GetId() const;
 
  private:
   uint64_t id_ = 0;

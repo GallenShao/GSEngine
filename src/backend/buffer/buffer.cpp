@@ -40,13 +40,13 @@ Buffer::~Buffer() {
                        << "].";
 }
 
-uint64_t Buffer::GetId() { return id_; }
+uint64_t Buffer::GetId() const { return id_; }
 
-void Buffer::active() {
+void Buffer::active() const {
   if (id_ == 0) return;
   GS_GL_CHECKER(glBindBuffer(gl_type_, id_))
 }
 
-void Buffer::inactive() { GS_GL_CHECKER(glBindBuffer(gl_type_, 0)) }
+void Buffer::inactive() const { GS_GL_CHECKER(glBindBuffer(gl_type_, 0)) }
 
 }  // namespace gs

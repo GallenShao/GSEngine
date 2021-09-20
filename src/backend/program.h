@@ -20,10 +20,10 @@ class Program {
   Program(const char* vertex_shader, const char* fragment_shader);
   ~Program();
 
-  uint64_t GetId();
+  uint64_t GetId() const;
 
-  void active();
-  void inactive();
+  void active() const;
+  static void inactive();
 
  private:
   uint64_t id_;
