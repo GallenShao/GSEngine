@@ -6,6 +6,4 @@ if [ ! -d cmake-build-debug ]; then
 	mkdir cmake-build-debug
 fi
 
-cd cmake-build-debug
-cmake ..
-make
+cmake --build cmake-build-debug --target GSEngineMacOS -- -j 9
