@@ -11,6 +11,8 @@
 
 #include <cstdint>
 #include <memory>
+#include <unordered_map>
+
 #include "shader.h"
 
 namespace gs::backend {
@@ -25,11 +27,16 @@ class Program {
   void active() const;
   static void inactive();
 
+  int32_t GetUniformLocation(const std::string& key);
+  int32_t GetAttributeLocation(const std::string& key);
+
  private:
   uint64_t id_;
   std::shared_ptr<Shader> v_shader_, f_shader_;
 
+  std::unordered_map<std::string, int32_t> location_map_;
+
   void destroy();
 };
 
-}  // namespace gs
+}  // namespace gs::backend

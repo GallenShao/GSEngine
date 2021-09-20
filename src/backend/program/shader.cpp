@@ -16,7 +16,7 @@
 namespace gs::backend {
 
 Shader::Shader(ShaderType type, const char* shader_source) : type_(type) {
-  id_ = glCreateShader(GetGLType());
+  GS_GL_CHECKER(id_ = glCreateShader(GetGLType()))
   if (id_ == 0) {
     LOG(LEVEL_ERROR, TAG) << "fail to create " << GetGLTypeStr() << " shader";
     return;
@@ -52,4 +52,4 @@ int Shader::GetGLType() { return type_ == ShaderType::Vertex ? GL_VERTEX_SHADER 
 
 std::string Shader::GetGLTypeStr() { return type_ == ShaderType::Vertex ? "vertex" : "fragment"; }
 
-}  // namespace gs
+}  // namespace gs::backend

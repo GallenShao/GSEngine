@@ -15,11 +15,16 @@ void main() {                  \n\
   gl_Position = a_Position;    \n\
 }"
 
-#define TEST_FRAGMENT_SHADER \
-"uniform vec4 u_Color;     \n\
-void main() {              \n\
-  gl_FragColor = u_Color;  \n\
+#define TEST_FRAGMENT_SHADER             \
+"uniform vec4 u_color;                 \n\
+uniform float u_alpha;                 \n\
+void main() {                          \n\
+  gl_FragColor = u_color * u_alpha;    \n\
 }"
+
+#define TEST_UNIFORM "u_color"
+#define TEST_UNIFORM2 "u_alpha"
+#define TEST_ATTRIBUTE "a_Position"
 
 #define TEST_VERTEX_BUFFER { 1.0f, 1.0f, 0.0f, 1.0f, -1.0f, 0.0f, -1.0f, -1.0f, 0.0f, -1.0f, 1.0f, 0.0f }
 
