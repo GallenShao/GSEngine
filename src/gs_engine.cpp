@@ -8,7 +8,7 @@
  */
 
 #include "gs_engine.h"
-#include "backend/utils/gs_logger.h"
+#include "utils/gs_logger.h"
 
 gs::GSEngine::GSEngine() {
   logger::SetMinLogLevel(LEVEL_INFO);

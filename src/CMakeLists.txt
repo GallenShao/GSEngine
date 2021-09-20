@@ -3,6 +3,7 @@ set(CMAKE_CXX_FLAGS "-g -std=c++17 -Werror")
 set(GSENGINE_ROOT ${CMAKE_CURRENT_LIST_DIR}/..)
 
 include_directories(${GSENGINE_ROOT}/include)
+include_directories(${GSENGINE_ROOT}/src/backend)
 
 aux_source_directory(. GS_ENGINE_SRCS)
 aux_source_directory(backend/utils GS_ENGINE_SRCS)
