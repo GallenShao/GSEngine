@@ -10,8 +10,7 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <gtest/gtest.h>
-
-#include <iostream>
+#include "utils/gs_logger.h"
 
 namespace gs::test {
 
@@ -35,6 +34,8 @@ class Environment : public ::testing::Environment {
       /* Make the window's context current */
       glfwMakeContextCurrent(window);
     }
+
+    gs::logger::SetMinLogLevel(LEVEL_DEBUG);
   }
 
   // Override this to define how to tear down the environment.

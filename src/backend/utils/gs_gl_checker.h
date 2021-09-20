@@ -12,23 +12,25 @@
 #include "OpenGL/gl.h"
 #include "gs_logger.h"
 
-#define GS_GL_DEBUG 1
+#define GS_GL_CHECKER_ENABLED 1
+#define GS_GL_CHECKER_VERBOSE 0
 
-#define GS_GL_TAG "GS_GL"
+#define GS_GL_TAG "GS_GL_CHECKER"
 
 namespace gs::glchecker {
 
-#if GS_GL_DEBUG
-const char* gl_error_msg[] = {"GL_INVALID_ENUM",
-                              "GL_INVALID_VALUE",
-                              "GL_INVALID_OPERATION",
-                              "GL_STACK_OVERFLOW",
-                              "GL_STACK_UNDERFLOW",
-                              "GL_OUT_OF_MEMORY",
-                              "GL_INVALID_FRAMEBUFFER_OPERATION"};
+#if GS_GL_CHECKER_VERBOSE
+#define GS_GL_TRACE(func) LOG(LEVEL_DEBUG, GS_GL_TAG) << #func;
+#else
+#define GS_GL_TRACE(func)
+#endif
+
+#if GS_GL_CHECKER_ENABLED
+extern const char* gl_error_msg[];
 
 #define GS_GL_CHECKER(func)                                                                                       \
   {                                                                                                               \
+    GS_GL_TRACE(func);                                                                                            \
     func;                                                                                                         \
     auto error_code = glGetError();                                                                               \
     if (error_code != 0) {                                                                                        \

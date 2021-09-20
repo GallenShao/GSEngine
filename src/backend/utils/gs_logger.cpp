@@ -16,6 +16,7 @@
 namespace gs::logger {
 
 Logger::Logger(const char *file, int line, int level) : level_(level) {
+  stream_ << "[" << file << ":" << line << "] ";
 #if GS_MACOS
   switch (level_) {
     case LEVEL_ERROR:
@@ -37,7 +38,6 @@ Logger::Logger(const char *file, int line, int level) : level_(level) {
       break;
   }
 #endif
-  stream_ << "[" << file << ":" << line << "] ";
 }
 
 Logger::~Logger() {
