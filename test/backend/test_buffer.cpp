@@ -9,8 +9,9 @@
 
 #include <gtest/gtest.h>
 
-#include "buffer/vertex_buffer.h"
 #include "buffer/index_buffer.h"
+#include "buffer/vertex_buffer.h"
+#include "parameter/layout.h"
 #include "test_constants.h"
 #include "utils/gs_gl_checker.h"
 
@@ -34,4 +35,40 @@ TEST(BufferTest, CreateIndexBuffer) {
   buffer->inactive();
   EXPECT_FALSE(gs::glchecker::has_gl_error);
   delete buffer;
+}
+
+TEST(BufferTest, CreateSimpleLayout0) {
+  auto layout = gs::backend::Layout::GetSimpleLayout(0);
+  EXPECT_EQ(layout->layout_items_.size(), 1);
+  EXPECT_EQ(layout->total_size_, 3);
+  EXPECT_STREQ(layout->layout_items_[0].name_.c_str(), "a_Position");
+  EXPECT_EQ(layout->layout_items_[0].size_, 3);
+  EXPECT_EQ(layout->layout_items_[0].offset_, 0);
+}
+
+TEST(BufferTest, CreateSimpleLayout1) {
+  auto layout = gs::backend::Layout::GetSimpleLayout(1);
+  EXPECT_EQ(layout->layout_items_.size(), 2);
+  EXPECT_EQ(layout->total_size_, 5);
+  EXPECT_STREQ(layout->layout_items_[0].name_.c_str(), "a_Position");
+  EXPECT_EQ(layout->layout_items_[0].size_, 3);
+  EXPECT_EQ(layout->layout_items_[0].offset_, 0);
+  EXPECT_STREQ(layout->layout_items_[1].name_.c_str(), "v_texCoord0");
+  EXPECT_EQ(layout->layout_items_[1].size_, 2);
+  EXPECT_EQ(layout->layout_items_[1].offset_, 3);
+}
+
+TEST(BufferTest, CreateSimpleLayout2) {
+  auto layout = gs::backend::Layout::GetSimpleLayout(2);
+  EXPECT_EQ(layout->layout_items_.size(), 3);
+  EXPECT_EQ(layout->total_size_, 7);
+  EXPECT_STREQ(layout->layout_items_[0].name_.c_str(), "a_Position");
+  EXPECT_EQ(layout->layout_items_[0].size_, 3);
+  EXPECT_EQ(layout->layout_items_[0].offset_, 0);
+  EXPECT_STREQ(layout->layout_items_[1].name_.c_str(), "v_texCoord0");
+  EXPECT_EQ(layout->layout_items_[1].size_, 2);
+  EXPECT_EQ(layout->layout_items_[1].offset_, 3);
+  EXPECT_STREQ(layout->layout_items_[2].name_.c_str(), "v_texCoord1");
+  EXPECT_EQ(layout->layout_items_[2].size_, 2);
+  EXPECT_EQ(layout->layout_items_[2].offset_, 5);
 }
