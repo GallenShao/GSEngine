@@ -50,6 +50,8 @@ class Logger {
 
 void SetMinLogLevel(int level);
 
+bool NeedLog(int level);
+
 #define DO_LOG(LEVEL)               \
   LEVEL < gs::logger::min_log_level \
       ? (void)0                     \

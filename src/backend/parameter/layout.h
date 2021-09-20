@@ -29,6 +29,8 @@ class Layout {
   Layout() = default;
   void AddItem(const std::string& name, int size);
 
+  void Dump();
+
   static std::shared_ptr<Layout> GetSimpleLayout(int tex_count);
 
   std::vector<LayoutItem> layout_items_;

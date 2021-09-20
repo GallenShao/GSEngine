@@ -29,7 +29,7 @@ void IndexBuffer::Dump() {
   for (int i = 1; i < item_counts_; i++) {
     ss << ", " << data[i];
   }
-  LOG(LEVEL_INFO, TAG) << "[" << id_ << "] " << ss.str();
+  LOG(LEVEL_DEBUG, TAG) << "[" << id_ << "] " << ss.str();
 }
 
 }  // namespace gs::backend

@@ -55,4 +55,6 @@ std::string last_log = "";
 
 void SetMinLogLevel(int level) { min_log_level = level; }
 
+bool NeedLog(int level) { return level < gs::logger::min_log_level; }
+
 }  // namespace gs::logger

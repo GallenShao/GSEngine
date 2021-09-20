@@ -8,14 +8,26 @@
  */
 
 #include "layout.h"
+#include "utils/gs_logger.h"
 
 #include <cstdio>
+#include <sstream>
+
+#define TAG "Layout"
 
 namespace gs::backend {
 
 void Layout::AddItem(const std::string& name, int size) {
   layout_items_.emplace_back(name, size, total_size_);
   total_size_ += size;
+}
+
+void Layout::Dump() {
+  std::stringstream ss;
+  for (auto& item : layout_items_) {
+    ss << item.name_ << "(" << item.size_ << ") ";
+  }
+  LOG(LEVEL_DEBUG, TAG) << ss.str();
 }
 
 std::shared_ptr<Layout> Layout::GetSimpleLayout(int tex_count) {
