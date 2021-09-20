@@ -22,6 +22,10 @@ include_directories(/usr/local/include)
 
 include_directories(${GSENGINE_ROOT}/src/backend)
 
+#################### 设置源文件目录 ####################
+
+aux_source_directory(${CMAKE_CURRENT_LIST_DIR}/backend GS_ENGINE_TEST_SRCS)
+
 #################### 设置库文件目录 ####################
 
 # glew的库目录路径
@@ -42,7 +46,7 @@ enable_testing()
 add_executable(
         GSEngine_test
         ${CMAKE_CURRENT_LIST_DIR}/main.cpp
-        ${CMAKE_CURRENT_LIST_DIR}/backend/test_shader.cpp
+        ${GS_ENGINE_TEST_SRCS}
 )
 target_link_libraries(
         GSEngine_test
