@@ -1,25 +1,19 @@
-/**
- * Copyright 2021 by GallenShao, All Rights Reserved.
+/*
+ * Copyright (c) 2021 by GallenShao, All Rights Reserved.
  *
- * gs_engine.cpp
+ * test_renderer.cpp
  *
- *  Created on: 2021.9.19
+ *  Created on: 2021.09.21
  *  Author: gallenshao
  */
 
-#include "gs_engine.h"
-#include "utils/gs_logger.h"
+#include <gtest/gtest.h>
+
 #include "renderer.h"
-#include "../test/backend/test_constants.h"
+#include "test_constants.h"
+#include "utils/gs_gl_checker.h"
 
-#define TAG "GSEngine"
-
-gs::GSEngine::GSEngine() {
-  logger::SetMinLogLevel(LEVEL_INFO);
-  LOG(LEVEL_INFO, TAG) << "Make";
-}
-
-void gs::GSEngine::flush() {
+TEST(RenderTest, CreateRenderer) {
   std::vector<float> vertex = TEST_VERTEX_BUFFER;
   auto vertex_ptr = std::make_shared<std::vector<float>>(std::move(vertex));
   auto layout = gs::backend::Layout::GetSimpleLayout(0);
@@ -35,4 +29,5 @@ void gs::GSEngine::flush() {
   renderer->SetUniforms(TEST_UNIFORM2, 0.5);
   renderer->SetUniforms(TEST_UNIFORM, 1.0, 1.0, 0.0, 1.0);
   renderer->Render();
+  EXPECT_FALSE(gs::glchecker::has_gl_error);
 }

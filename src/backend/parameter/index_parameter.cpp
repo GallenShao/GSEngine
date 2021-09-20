@@ -29,4 +29,8 @@ void IndexParameter::Bind(const std::shared_ptr<Program>& program) {
 
 void IndexParameter::Unbind(const std::shared_ptr<Program>& program) { index_buffer_->inactive(); }
 
+size_t IndexParameter::GetElementSize() {
+  return index_buffer_->GetElementSize();
+}
+
 }  // namespace gs::backend

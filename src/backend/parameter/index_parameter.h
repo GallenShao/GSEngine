@@ -24,6 +24,8 @@ class IndexParameter : public Parameter {
 
   void Unbind(const std::shared_ptr<Program>& program) override;
 
+  size_t GetElementSize();
+
  private:
   std::shared_ptr<IndexBuffer> index_buffer_;
 };

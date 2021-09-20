@@ -32,4 +32,8 @@ void IndexBuffer::Dump() {
   LOG(LEVEL_DEBUG, TAG) << "[" << id_ << "] " << ss.str();
 }
 
+size_t IndexBuffer::GetElementSize() {
+  return data_->size();
+}
+
 }  // namespace gs::backend

@@ -47,17 +47,21 @@ Program::~Program() {
   f_shader_ = nullptr;
 }
 
+bool Program::IsValid() const {
+  return id_ != 0;
+}
+
 uint64_t Program::GetId() const { return id_; }
 
 void Program::active() const {
-  if (id_ == 0) return;
+  if (!IsValid()) return;
   GS_GL_CHECKER(glUseProgram(id_))
 }
 
 void Program::inactive() { GS_GL_CHECKER(glUseProgram(0)) }
 
 void Program::destroy() {
-  if (id_ == 0) return;
+  if (!IsValid()) return;
 
   GS_GL_CHECKER(glDeleteProgram(id_))
   LOG(LEVEL_INFO, TAG) << "program deleted[" << id_ << "].";
@@ -65,7 +69,7 @@ void Program::destroy() {
 }
 
 int32_t Program::GetUniformLocation(const std::string& key) {
-  if (id_ == 0) return -1;
+  if (!IsValid()) return -1;
 
   auto iter = location_map_.find(key);
   if (iter != location_map_.end()) {
@@ -85,7 +89,7 @@ int32_t Program::GetUniformLocation(const std::string& key) {
 }
 
 int32_t Program::GetAttributeLocation(const std::string& key) {
-  if (id_ == 0) return -1;
+  if (!IsValid()) return -1;
 
   auto iter = location_map_.find(key);
   if (iter != location_map_.end()) {

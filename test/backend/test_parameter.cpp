@@ -1,15 +1,13 @@
 /*
  * Copyright (c) 2021 by GallenShao, All Rights Reserved.
  *
- * test_buffer.cpp
+ * test_parameter.cpp
  *
  *  Created on: 2021.09.20
  *  Author: gallenshao
  */
 
 #include <gtest/gtest.h>
-
-#include <sstream>
 
 #include "parameter/index_parameter.h"
 #include "parameter/layout.h"

@@ -24,6 +24,8 @@ class Program {
 
   uint64_t GetId() const;
 
+  bool IsValid() const;
+
   void active() const;
   static void inactive();
 

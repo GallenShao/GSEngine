@@ -18,7 +18,7 @@ int main() {
   /* Make the window's context current */
   glfwMakeContextCurrent(window);
 
-  auto gs_engine = new gs::GSEngine();
+  auto gs_engine = std::make_shared<gs::GSEngine>();
 
   /* Loop until the user closes the window */
   while (!glfwWindowShouldClose(window)) {
@@ -26,13 +26,15 @@ int main() {
     glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 
+    gs_engine->flush();
+
     /* Swap front and back buffers */
     glfwSwapBuffers(window);
     /* Poll for and process events */
     glfwPollEvents();
   }
 
-  delete gs_engine;
+  gs_engine = nullptr;
 
   glfwTerminate();
   return 0;

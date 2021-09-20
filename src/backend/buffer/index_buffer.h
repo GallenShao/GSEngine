@@ -21,6 +21,8 @@ class IndexBuffer : public Buffer {
 
   void Dump() override;
 
+  size_t GetElementSize();
+
  private:
   std::shared_ptr<std::vector<uint32_t>> data_;
 };

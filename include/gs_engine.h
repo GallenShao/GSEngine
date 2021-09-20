@@ -14,6 +14,8 @@ namespace gs {
 class GSEngine {
  public:
   explicit GSEngine();
+
+  void flush();
 };
 
 }
