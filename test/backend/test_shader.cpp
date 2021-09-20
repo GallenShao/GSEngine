@@ -9,7 +9,7 @@
 
 #include <gtest/gtest.h>
 
-#include "shader.h"
+#include "program/shader.h"
 #include "test_constants.h"
 #include "utils/gs_gl_checker.h"
 

@@ -9,7 +9,7 @@
 
 #include <gtest/gtest.h>
 
-#include "program.h"
+#include "program/program.h"
 #include "test_constants.h"
 #include "utils/gs_gl_checker.h"
 
