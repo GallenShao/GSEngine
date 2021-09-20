@@ -13,7 +13,7 @@
 
 #define TAG "Shader"
 
-namespace gs {
+namespace gs::backend {
 
 Shader::Shader(ShaderType type, const char* shader_source) : type_(type) {
   id_ = glCreateShader(GetGLType());

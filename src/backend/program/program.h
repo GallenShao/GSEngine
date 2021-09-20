@@ -13,7 +13,7 @@
 #include <memory>
 #include "shader.h"
 
-namespace gs {
+namespace gs::backend {
 
 class Program {
  public:

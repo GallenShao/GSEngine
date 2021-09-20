@@ -13,7 +13,7 @@
 
 #include "buffer.h"
 
-namespace gs {
+namespace gs::backend {
 
 class IndexBuffer : public Buffer {
  public:

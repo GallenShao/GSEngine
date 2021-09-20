@@ -9,7 +9,7 @@
 
 #include "index_buffer.h"
 
-namespace gs {
+namespace gs::backend {
 
 IndexBuffer::IndexBuffer(const std::shared_ptr<std::vector<uint32_t>>& data)
     : Buffer(BufferType::ELEMENT_ARRAY_BUFFER, data->data(), data->size(), sizeof(uint32_t)), data_(data) {}

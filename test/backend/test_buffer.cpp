@@ -17,7 +17,7 @@
 TEST(BufferTest, CreateVertexBuffer) {
   std::vector<float> vertex = TEST_VERTEX_BUFFER;
   auto vertex_ptr = std::make_shared<std::vector<float>>(std::move(vertex));
-  auto buffer = new gs::VertexBuffer(vertex_ptr);
+  auto buffer = new gs::backend::VertexBuffer(vertex_ptr);
   EXPECT_NE(buffer->GetId(), 0);
   buffer->active();
   buffer->inactive();
@@ -28,7 +28,7 @@ TEST(BufferTest, CreateVertexBuffer) {
 TEST(BufferTest, CreateIndexBuffer) {
   std::vector<uint32_t> index = TEST_INDEX_BUFFER;
   auto index_ptr = std::make_shared<std::vector<uint32_t>>(std::move(index));
-  auto buffer = new gs::IndexBuffer(index_ptr);
+  auto buffer = new gs::backend::IndexBuffer(index_ptr);
   EXPECT_NE(buffer->GetId(), 0);
   buffer->active();
   buffer->inactive();

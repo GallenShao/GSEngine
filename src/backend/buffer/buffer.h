@@ -12,7 +12,7 @@
 #include <cstdint>
 #include <memory>
 
-namespace gs {
+namespace gs::backend {
 
 enum BufferType {
   ARRAY_BUFFER,

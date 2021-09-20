@@ -11,7 +11,7 @@
 
 #define TAG "VertexBuffer"
 
-namespace gs {
+namespace gs::backend {
 
 VertexBuffer::VertexBuffer(const std::shared_ptr<std::vector<float>>& data)
     : Buffer(BufferType::ARRAY_BUFFER, data->data(), data->size(), sizeof(float)), data_(data) {}

@@ -14,7 +14,7 @@
 
 #define TAG "Buffer"
 
-namespace gs {
+namespace gs::backend {
 
 Buffer::Buffer(BufferType type, const void* data, int item_counts, size_t item_size)
     : type_(type), item_counts_(item_counts), item_size_(item_size) {

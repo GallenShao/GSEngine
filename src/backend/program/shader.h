@@ -12,7 +12,7 @@
 #include <cstdint>
 #include <string>
 
-namespace gs {
+namespace gs::backend {
 
 enum ShaderType { Vertex = 0, Fragment = 1 };
 

@@ -13,7 +13,7 @@
 
 #define TAG "Program"
 
-namespace gs {
+namespace gs::backend {
 
 Program::Program(const char *vertex_shader, const char *fragment_shader) {
   v_shader_ = std::make_shared<Shader>(Vertex, vertex_shader);
