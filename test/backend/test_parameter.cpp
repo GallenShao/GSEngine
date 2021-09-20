@@ -19,24 +19,30 @@ TEST(ParameterTest, CreateSimpleLayout0) {
   auto layout = gs::backend::Layout::GetSimpleLayout(0);
   EXPECT_EQ(layout->layout_items_.size(), 1);
   EXPECT_EQ(layout->total_size_, 3);
-  layout->Dump();
-  EXPECT_STREQ(gs::logger::last_log.c_str(), "[Layout] a_Position(3) ");
+  EXPECT_STREQ(layout->layout_items_[0].name_.c_str(), "a_Position");
+  EXPECT_EQ(layout->layout_items_[0].size_, 3);
 }
 
 TEST(ParameterTest, CreateSimpleLayout1) {
   auto layout = gs::backend::Layout::GetSimpleLayout(1);
   EXPECT_EQ(layout->layout_items_.size(), 2);
   EXPECT_EQ(layout->total_size_, 5);
-  layout->Dump();
-  EXPECT_STREQ(gs::logger::last_log.c_str(), "[Layout] a_Position(3) v_texCoord0(2) ");
+  EXPECT_STREQ(layout->layout_items_[0].name_.c_str(), "a_Position");
+  EXPECT_EQ(layout->layout_items_[0].size_, 3);
+  EXPECT_STREQ(layout->layout_items_[1].name_.c_str(), "v_texCoord0");
+  EXPECT_EQ(layout->layout_items_[1].size_, 2);
 }
 
 TEST(ParameterTest, CreateSimpleLayout2) {
   auto layout = gs::backend::Layout::GetSimpleLayout(2);
   EXPECT_EQ(layout->layout_items_.size(), 3);
   EXPECT_EQ(layout->total_size_, 7);
-  layout->Dump();
-  EXPECT_STREQ(gs::logger::last_log.c_str(), "[Layout] a_Position(3) v_texCoord0(2) v_texCoord1(2) ");
+  EXPECT_STREQ(layout->layout_items_[0].name_.c_str(), "a_Position");
+  EXPECT_EQ(layout->layout_items_[0].size_, 3);
+  EXPECT_STREQ(layout->layout_items_[1].name_.c_str(), "v_texCoord0");
+  EXPECT_EQ(layout->layout_items_[1].size_, 2);
+  EXPECT_STREQ(layout->layout_items_[2].name_.c_str(), "v_texCoord1");
+  EXPECT_EQ(layout->layout_items_[2].size_, 2);
 }
 
 TEST(ParameterTest, FindUniformLocation) {

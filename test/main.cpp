@@ -35,7 +35,7 @@ class Environment : public ::testing::Environment {
       glfwMakeContextCurrent(window);
     }
 
-    gs::logger::SetMinLogLevel(LEVEL_DEBUG);
+    gs::logger::SetMinLogLevel(LEVEL_WARN);
   }
 
   // Override this to define how to tear down the environment.
