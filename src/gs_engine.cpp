@@ -10,7 +10,9 @@
 #include "gs_engine.h"
 #include "utils/gs_logger.h"
 
+#define TAG "GSEngine"
+
 gs::GSEngine::GSEngine() {
   logger::SetMinLogLevel(LEVEL_INFO);
-  LOG(LEVEL_INFO) << "Make GSEngine";
+  LOG(LEVEL_INFO, TAG) << "Make";
 }

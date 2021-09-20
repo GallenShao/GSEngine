@@ -47,9 +47,15 @@ class Logger {
 
 void SetMinLogLevel(int level);
 
-#define LOG(LEVEL)                  \
+#define DO_LOG(LEVEL)               \
   LEVEL < gs::logger::min_log_level \
       ? (void)0                     \
       : gs::logger::LoggerVoidify() & gs::logger::Logger(__FILE__, __LINE__, LEVEL).stream()
+
+#define DO_LOG_WITH_TAG(LEVEL, TAG) DO_LOG(LEVEL) << "[" << TAG << "] "
+
+#define GET_LOG(_first, _second, FUNC, ...) FUNC
+
+#define LOG(...) GET_LOG(__VA_ARGS__, DO_LOG_WITH_TAG, DO_LOG)(__VA_ARGS__)
 
 }  // namespace gs::logger
