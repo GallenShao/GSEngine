@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include "GL/glew.h"
+#include "OpenGL/gl.h"
 #include "gs_logger.h"
 
 #define GS_GL_DEBUG 1
@@ -27,13 +27,14 @@ const char* gl_error_msg[] = {"GL_INVALID_ENUM",
                               "GL_OUT_OF_MEMORY",
                               "GL_INVALID_FRAMEBUFFER_OPERATION"};
 
-#define GS_GL_CHECKER(func)                                                                            \
-  {                                                                                                    \
-    func;                                                                                              \
-    auto error_code = glGetError();                                                                    \
-    if (error_code != 0) {                                                                             \
-      LOG(ERROR, GS_GL_TAG) << gl_error_msg[error_code - GL_INVALID_ENUM] << " found after  " << #func \
-    }                                                                                                  \
+#define GS_GL_CHECKER(func)                                                                                       \
+  {                                                                                                               \
+    func;                                                                                                         \
+    auto error_code = glGetError();                                                                               \
+    if (error_code != 0) {                                                                                        \
+      LOG(LEVEL_ERROR, GS_GL_TAG) << gs::glchecker::gl_error_msg[error_code - GL_INVALID_ENUM] << " found after " \
+                                  << #func;                                                                       \
+    }                                                                                                             \
   }
 #else
 #define GS_GL_CHECKER(func) \

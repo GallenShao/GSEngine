@@ -45,5 +45,8 @@ add_executable(GSEngineMacOS ${GS_ENGINE_MACOS_SRCS})
 target_link_libraries(GSEngineMacOS GLEW)
 # 指定glfw库
 target_link_libraries(GSEngineMacOS GLFW)
+if (APPLE)
+    target_link_libraries(GSEngineMacOS "-framework OpenGL")
+endif()
 
 target_link_libraries(GSEngineMacOS GSEngine)
