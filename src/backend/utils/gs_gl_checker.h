@@ -27,6 +27,7 @@ namespace gs::glchecker {
 
 #if GS_GL_CHECKER_ENABLED
 extern const char* gl_error_msg[];
+extern bool has_gl_error;
 
 #define GS_GL_CHECKER(func)                                                                                       \
   {                                                                                                               \
@@ -36,6 +37,7 @@ extern const char* gl_error_msg[];
     if (error_code != 0) {                                                                                        \
       LOG(LEVEL_ERROR, GS_GL_TAG) << gs::glchecker::gl_error_msg[error_code - GL_INVALID_ENUM] << " found after " \
                                   << #func;                                                                       \
+      gs::glchecker::has_gl_error = true;                                                                         \
     }                                                                                                             \
   }
 #else

@@ -11,6 +11,7 @@
 
 namespace gs::glchecker {
 
+#if GS_GL_CHECKER_ENABLED
 const char* gl_error_msg[] = {"GL_INVALID_ENUM",
                               "GL_INVALID_VALUE",
                               "GL_INVALID_OPERATION",
@@ -18,5 +19,7 @@ const char* gl_error_msg[] = {"GL_INVALID_ENUM",
                               "GL_STACK_UNDERFLOW",
                               "GL_OUT_OF_MEMORY",
                               "GL_INVALID_FRAMEBUFFER_OPERATION"};
+bool has_gl_error = false;
+#endif
 
 }
