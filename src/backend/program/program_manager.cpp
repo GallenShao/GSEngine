@@ -8,6 +8,7 @@
  */
 
 #include "program_manager.h"
+#include "utils/hash_utils.h"
 
 namespace gs::backend {
 
@@ -32,8 +33,8 @@ std::shared_ptr<Program> ProgramManager::Get(const char* vertex_shader, const ch
   return program;
 }
 
-std::string ProgramManager::GetHash(const char* vertex_shader, const char* fragment_shader) {
-  return std::string(vertex_shader) + "_" + std::string(fragment_shader);
+std::size_t ProgramManager::GetHash(const char* vertex_shader, const char* fragment_shader) {
+  return HashUtils::GetHash(vertex_shader, fragment_shader);
 }
 
-}
+}  // namespace gs::backend
