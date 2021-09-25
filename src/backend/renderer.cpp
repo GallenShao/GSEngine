@@ -10,13 +10,13 @@
 #include "renderer.h"
 #include "parameter/vec4_parameter.h"
 #include "parameter/float_parameter.h"
-
+#include "program/program_manager.h"
 #include "utils/gs_gl_checker.h"
 
 namespace gs::backend {
 
 Renderer::Renderer(const char* vertex_shader, const char* fragment_shader, DrawMode draw_mode) : draw_mode_(draw_mode) {
-  program_ = std::make_shared<Program>(vertex_shader, fragment_shader);
+  program_ = ProgramManager::GetInstance()->Get(vertex_shader, fragment_shader);
 }
 
 void Renderer::SetParameter(const std::string& key, const std::shared_ptr<Parameter>& parameter) {

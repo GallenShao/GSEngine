@@ -7,4 +7,7 @@ if [ ! -d cmake-build-debug ]; then
 fi
 
 cmake --build cmake-build-debug --target GSEngine_test -- -j 9
-./cmake-build-debug/output/GSEngine_test
+
+if [ $? -eq 0 ]; then
+  ./cmake-build-debug/output/GSEngine_test
+fi

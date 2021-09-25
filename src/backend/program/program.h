@@ -17,9 +17,10 @@
 
 namespace gs::backend {
 
+class ProgramManager;
+
 class Program {
  public:
-  Program(const char* vertex_shader, const char* fragment_shader);
   ~Program();
 
   uint64_t GetId() const;
@@ -38,7 +39,10 @@ class Program {
 
   std::unordered_map<std::string, int32_t> location_map_;
 
+  Program(const char* vertex_shader, const char* fragment_shader);
   void destroy();
+
+ friend class ProgramManager;
 };
 
 }  // namespace gs::backend
