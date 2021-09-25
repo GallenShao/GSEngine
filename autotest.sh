@@ -7,4 +7,4 @@ if [ ! -d cmake-build-debug ]; then
 fi
 
 cmake --build cmake-build-debug --target GSEngine_test -- -j 9
-./cmake-build-debug/output/GSEngine_test --gtest_filter=* --gtest_color=no
+./cmake-build-debug/output/GSEngine_test
