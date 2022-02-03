@@ -28,7 +28,7 @@ class Program {
   bool IsValid() const;
 
   void active() const;
-  static void inactive();
+  void inactive();
 
   int32_t GetUniformLocation(const std::string& key);
   int32_t GetAttributeLocation(const std::string& key);

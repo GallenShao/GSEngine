@@ -29,3 +29,6 @@ void main() {                          \n\
 #define TEST_VERTEX_BUFFER { 1.0f, 1.0f, 0.0f, 1.0f, -1.0f, 0.0f, -1.0f, -1.0f, 0.0f, -1.0f, 1.0f, 0.0f }
 
 #define TEST_INDEX_BUFFER { 0, 1, 2, 2, 3, 0 }
+
+#define TEST_WIDTH 800
+#define TEST_HEIGHT 600
