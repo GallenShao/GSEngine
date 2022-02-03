@@ -23,10 +23,10 @@ void Vec4Parameter::UpdateValue(float x, float y, float z, float w) {
   w_ = w;
 }
 
-void Vec4Parameter::Dobind(const std::shared_ptr<Program>& program) {
+void Vec4Parameter::Dobind(std::shared_ptr<Program>& program) {
   GS_GL_CHECKER(glUniform4f(location_, x_, y_, z_, w_))
 }
 
-void Vec4Parameter::Unbind(const std::shared_ptr<Program>& program) {}
+void Vec4Parameter::Unbind(std::shared_ptr<Program>& program) {}
 
 }  // namespace gs::backend

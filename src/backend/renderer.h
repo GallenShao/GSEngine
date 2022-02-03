@@ -12,6 +12,7 @@
 #include "parameter/vertex_parameter.h"
 #include "parameter/index_parameter.h"
 #include "program/program.h"
+#include "resource/frame_buffer.h"
 
 #include <unordered_map>
 
@@ -38,10 +39,15 @@ class Renderer {
   void SetUniforms(const std::string& key, float x);
   void SetUniforms(const std::string& key, float x, float y, float z, float w);
 
+  void SetTexture(const std::string& key, const std::shared_ptr<Texture>& texture);
+
+  void SetOutput(const std::shared_ptr<FrameBuffer>& output);
+
  private:
   std::shared_ptr<Program> program_;
   std::unordered_map<std::string, std::shared_ptr<Parameter>> parameters_;
   std::shared_ptr<IndexParameter> index_parameter_;
+  std::shared_ptr<FrameBuffer> output_;
   DrawMode draw_mode_;
 
   void BindRenderState();

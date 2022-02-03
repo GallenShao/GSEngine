@@ -13,7 +13,7 @@ namespace gs::backend {
 
 UniformParameter::UniformParameter(const std::string& key) : key_(key) {}
 
-void UniformParameter::Bind(const std::shared_ptr<Program>& program) {
+void UniformParameter::Bind(std::shared_ptr<Program>& program) {
   if (location_ < 0) {
     GetLocation(program);
   }

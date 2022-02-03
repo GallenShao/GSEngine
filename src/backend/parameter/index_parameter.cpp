@@ -19,7 +19,7 @@ IndexParameter::IndexParameter(const std::shared_ptr<std::vector<uint32_t>>& ind
 
 IndexParameter::~IndexParameter() { index_buffer_ = nullptr; }
 
-void IndexParameter::Bind(const std::shared_ptr<Program>& program) {
+void IndexParameter::Bind(std::shared_ptr<Program>& program) {
   index_buffer_->active();
 
   if (gs::logger::NeedLog(LEVEL_DEBUG)) {
@@ -27,7 +27,7 @@ void IndexParameter::Bind(const std::shared_ptr<Program>& program) {
   }
 }
 
-void IndexParameter::Unbind(const std::shared_ptr<Program>& program) { index_buffer_->inactive(); }
+void IndexParameter::Unbind(std::shared_ptr<Program>& program) { index_buffer_->inactive(); }
 
 size_t IndexParameter::GetElementSize() {
   return index_buffer_->GetElementSize();

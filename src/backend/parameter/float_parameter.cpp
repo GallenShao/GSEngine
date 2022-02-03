@@ -17,8 +17,8 @@ FloatParameter::FloatParameter(const std::string& key, float value) : UniformPar
 
 void FloatParameter::UpdateValue(float value) { value_ = value; }
 
-void FloatParameter::Dobind(const std::shared_ptr<Program>& program) { GS_GL_CHECKER(glUniform1f(location_, value_)) }
+void FloatParameter::Dobind(std::shared_ptr<Program>& program) { GS_GL_CHECKER(glUniform1f(location_, value_)) }
 
-void FloatParameter::Unbind(const std::shared_ptr<Program>& program) {}
+void FloatParameter::Unbind(std::shared_ptr<Program>& program) {}
 
 }  // namespace gs::backend

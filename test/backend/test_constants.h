@@ -22,6 +22,22 @@ void main() {                          \n\
   gl_FragColor = u_color * u_alpha;    \n\
 }"
 
+#define TEST_VERTEX_SHADER_TEX       \
+"attribute vec4 a_Position;        \n\
+attribute vec4 a_texCoord0;        \n\
+varying vec4 v_texCoord0;          \n\
+void main() {                      \n\
+  v_texCoord0 = a_texCoord0;       \n\
+  gl_Position = a_Position;        \n\
+}"
+
+#define TEST_FRAGMENT_SHADER_TEX                          \
+"varying vec4 v_texCoord0;                              \n\
+uniform sampler2D s_texColor;                           \n\
+void main() {                                           \n\
+  gl_FragColor = texture2D(s_texColor, v_texCoord0.xy); \n\
+}"
+
 #define TEST_UNIFORM "u_color"
 #define TEST_UNIFORM2 "u_alpha"
 #define TEST_ATTRIBUTE "a_Position"

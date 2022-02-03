@@ -17,9 +17,9 @@ class UniformParameter : public Parameter {
  public:
   explicit UniformParameter(const std::string& key);
 
-  void Bind(const std::shared_ptr<Program>& program) override;
+  void Bind(std::shared_ptr<Program>& program) override;
 
-  virtual void Dobind(const std::shared_ptr<Program>& program) = 0;
+  virtual void Dobind(std::shared_ptr<Program>& program) = 0;
 
  protected:
   std::string key_;

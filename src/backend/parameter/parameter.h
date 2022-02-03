@@ -15,9 +15,9 @@ namespace gs::backend {
 
 class Parameter {
  public:
-  virtual void Bind(const std::shared_ptr<Program>& program) = 0;
+  virtual void Bind(std::shared_ptr<Program>& program) = 0;
 
-  virtual void Unbind(const std::shared_ptr<Program>& program) = 0;
+  virtual void Unbind(std::shared_ptr<Program>& program) = 0;
 };
 
 }  // namespace gs::backend

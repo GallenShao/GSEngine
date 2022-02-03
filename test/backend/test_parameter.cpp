@@ -30,7 +30,7 @@ TEST(ParameterTest, CreateSimpleLayout1) {
   EXPECT_EQ(layout->total_size_, 5);
   EXPECT_STREQ(layout->layout_items_[0].name_.c_str(), "a_Position");
   EXPECT_EQ(layout->layout_items_[0].size_, 3);
-  EXPECT_STREQ(layout->layout_items_[1].name_.c_str(), "v_texCoord0");
+  EXPECT_STREQ(layout->layout_items_[1].name_.c_str(), "a_texCoord0");
   EXPECT_EQ(layout->layout_items_[1].size_, 2);
 }
 
@@ -40,9 +40,9 @@ TEST(ParameterTest, CreateSimpleLayout2) {
   EXPECT_EQ(layout->total_size_, 7);
   EXPECT_STREQ(layout->layout_items_[0].name_.c_str(), "a_Position");
   EXPECT_EQ(layout->layout_items_[0].size_, 3);
-  EXPECT_STREQ(layout->layout_items_[1].name_.c_str(), "v_texCoord0");
+  EXPECT_STREQ(layout->layout_items_[1].name_.c_str(), "a_texCoord0");
   EXPECT_EQ(layout->layout_items_[1].size_, 2);
-  EXPECT_STREQ(layout->layout_items_[2].name_.c_str(), "v_texCoord1");
+  EXPECT_STREQ(layout->layout_items_[2].name_.c_str(), "a_texCoord1");
   EXPECT_EQ(layout->layout_items_[2].size_, 2);
 }
 

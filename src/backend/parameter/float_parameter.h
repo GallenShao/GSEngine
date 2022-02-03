@@ -16,8 +16,8 @@ namespace gs::backend {
 class FloatParameter : public UniformParameter {
  public:
   FloatParameter(const std::string& key, float value);
-  void Dobind(const std::shared_ptr<Program>& program) override;
-  void Unbind(const std::shared_ptr<Program>& program) override;
+  void Dobind(std::shared_ptr<Program>& program) override;
+  void Unbind(std::shared_ptr<Program>& program) override;
 
   void UpdateValue(float value);
 

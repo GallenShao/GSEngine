@@ -26,7 +26,7 @@ VertexParameter::VertexParameter(const std::shared_ptr<std::vector<float>>& vert
 
 VertexParameter::~VertexParameter() { vertex_buffer_ = nullptr; }
 
-void VertexParameter::Bind(const std::shared_ptr<Program>& program) {
+void VertexParameter::Bind(std::shared_ptr<Program>& program) {
   vertex_buffer_->active();
   for (auto& item : layout_->layout_items_) {
     uint32_t location = program->GetAttributeLocation(item.name_);
@@ -40,6 +40,6 @@ void VertexParameter::Bind(const std::shared_ptr<Program>& program) {
   }
 }
 
-void VertexParameter::Unbind(const std::shared_ptr<Program>& program) { vertex_buffer_->inactive(); }
+void VertexParameter::Unbind(std::shared_ptr<Program>& program) { vertex_buffer_->inactive(); }
 
 }  // namespace gs::backend

@@ -21,9 +21,9 @@ class VertexParameter : public Parameter {
 
   ~VertexParameter();
 
-  void Bind(const std::shared_ptr<Program>& program) override;
+  void Bind(std::shared_ptr<Program>& program) override;
 
-  void Unbind(const std::shared_ptr<Program>& program) override;
+  void Unbind(std::shared_ptr<Program>& program) override;
 
  private:
   std::shared_ptr<VertexBuffer> vertex_buffer_;

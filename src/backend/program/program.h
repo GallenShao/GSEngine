@@ -27,7 +27,7 @@ class Program {
 
   bool IsValid() const;
 
-  void active() const;
+  void active();
   void inactive();
 
   int32_t GetUniformLocation(const std::string& key);
@@ -36,6 +36,7 @@ class Program {
  private:
   uint64_t id_;
   std::shared_ptr<Shader> v_shader_, f_shader_;
+  int texture_count_ = 0;
 
   std::unordered_map<std::string, int32_t> location_map_;
 
@@ -43,6 +44,7 @@ class Program {
   void destroy();
 
  friend class ProgramManager;
+ friend class Texture2DParameter;
 };
 
 }  // namespace gs::backend

@@ -10,6 +10,7 @@
 #include "renderer.h"
 #include "parameter/vec4_parameter.h"
 #include "parameter/float_parameter.h"
+#include "parameter/texture2d_parameter.h"
 #include "program/program_manager.h"
 #include "utils/gs_gl_checker.h"
 
@@ -54,14 +55,31 @@ void Renderer::SetUniforms(const std::string& key, float x, float y, float z, fl
   SetParameter(key, uniform_parameter);
 }
 
+void Renderer::SetTexture(const std::string& key, const std::shared_ptr<Texture>& texture) {
+  auto iter = parameters_.find(key);
+  if (iter != parameters_.end()) {
+    std::static_pointer_cast<Texture2DParameter>(iter->second)->UpdateValue(texture);
+    return;
+  }
+
+  auto texture_parameter = std::make_shared<Texture2DParameter>(key, texture);
+  SetParameter(key, texture_parameter);
+}
+
+void Renderer::SetOutput(const std::shared_ptr<FrameBuffer>& output) {
+  output_ = output;
+}
+
 void Renderer::Render() {
-  if (program_ == nullptr || !program_->IsValid()) return;
+  if (program_ == nullptr || !program_->IsValid() || output_ == nullptr) return;
 
   program_->active();
+  output_->active();
   BindRenderState();
   BindParameters();
   PerformRender();
   UnbindParameters();
+  output_->inactive();
   program_->inactive();
 }
 

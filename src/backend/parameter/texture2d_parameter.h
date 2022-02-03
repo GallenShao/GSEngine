@@ -1,28 +1,29 @@
 /*
  * Copyright (c) 2021 by GallenShao, All Rights Reserved.
  *
- * vec4_parameter.h
+ * texture2d_parameter.h
  *
- *  Created on: 2021.09.20
+ *  Created on: 2022.2.3
  *  Author: gallenshao
  */
 
 #pragma once
 
 #include "uniform_parameter.h"
+#include "resource/texture.h"
 
 namespace gs::backend {
 
-class Vec4Parameter : public UniformParameter {
+class Texture2DParameter : public UniformParameter {
  public:
-  Vec4Parameter(const std::string& key, float x, float y, float z, float w);
+  Texture2DParameter(const std::string& key, const std::shared_ptr<Texture>& texture);
   void Dobind(std::shared_ptr<Program>& program) override;
   void Unbind(std::shared_ptr<Program>& program) override;
 
-  void UpdateValue(float x, float y, float z, float w);
+  void UpdateValue(const std::shared_ptr<Texture>& texture);
 
  private:
-  float x_, y_, z_, w_;
+  std::shared_ptr<Texture> texture_;
 };
 
 }  // namespace gs::backend

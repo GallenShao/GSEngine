@@ -53,9 +53,10 @@ bool Program::IsValid() const {
 
 uint64_t Program::GetId() const { return id_; }
 
-void Program::active() const {
+void Program::active() {
   if (!IsValid()) return;
   GS_GL_CHECKER(glUseProgram(id_))
+  texture_count_ = 0;
 }
 
 void Program::inactive() { GS_GL_CHECKER(glUseProgram(0)) }

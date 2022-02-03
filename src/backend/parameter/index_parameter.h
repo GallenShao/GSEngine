@@ -20,9 +20,9 @@ class IndexParameter : public Parameter {
 
   ~IndexParameter();
 
-  void Bind(const std::shared_ptr<Program>& program) override;
+  void Bind(std::shared_ptr<Program>& program) override;
 
-  void Unbind(const std::shared_ptr<Program>& program) override;
+  void Unbind(std::shared_ptr<Program>& program) override;
 
   size_t GetElementSize();
 
