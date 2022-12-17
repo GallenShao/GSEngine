@@ -35,7 +35,7 @@ std::shared_ptr<Layout> Layout::GetSimpleLayout(int tex_count) {
   layout->AddItem("a_Position", 3);
   for (int index = 0; index < tex_count; index++) {
     char tex_name[20];
-    sprintf(tex_name, "a_texCoord%d", index);
+    snprintf(tex_name, 20, "a_texCoord%d", index);
     layout->AddItem(tex_name, 2);
   }
   return layout;
